@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    DNI: <input type="text" id="dni"><br>
+    Letra <input type="text" id="letradni">
+    <button onClick="validarDNI()">Validar</button>
+    <h3 id="resultadoValidacion"></h3>
+    <script>
+        let inputDNI = document.getElementById("dni");
+        let resultadoValidacion = document.getElementById("resultadoValidacion");
+        var inputLetra = document.getElementById("letradni")
+
+        function validarDNI(){
+
+            var letras =['T', 'R', 'W', 'A', 'G', 'M','Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S',
+                        'Q', 'V', 'H', 'L', 'C', 'R', 'E', 'T']
+            
+            let letracomparacion = inputLetra
+            let valordni = inputDNI.value * 1;
+            let mensaje = "";
+            
+
+            if(0 < valordni < 99999999){
+                numero=valordni%23
+                letra = letras[numero]
+                if( letra == letracomparacion){
+                    mensaje = `Correcto! su letra es ${letras[numero]}`
+                }else{
+                    mensaje = 'No es la letra correcta, verifíquelo por favor'
+                }
+            } else {
+                mensaje = "DNI NO válido";
+            }
+            
+            resultadoValidacion.innerText=mensaje;}
+    </script>
+</body>
+</html>
