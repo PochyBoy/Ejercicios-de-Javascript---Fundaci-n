@@ -7,6 +7,23 @@ if(0<numero<11){
   alert('no es el numero correcto')
 }
 
+let final = false;
+let numbers = []
+let  suma = 0
+while(!final){
+  let number = prompt('Ingresar numero')
+  if(number <= 0){
+    final = true
+  }else{
+    numbers.push(number)
+  }
+}
+numbers.forEach(e =>{
+  suma +=parseInt(e)
+});
+console.log(numbers, suma)
+
+
 function factorial(x){
     let total = 1
     for (let i=x; i>1; i--){
